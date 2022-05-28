@@ -1,0 +1,912 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #c8ab69;
+    --secondary: #18b5c3;
+    --background: #001b29;
+}
+
+a {
+    cursor:none;
+}
+
+body
+{
+    width: 100%;
+    background-color: var(--background);
+    font-size:12px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    cursor:none;
+}
+
+ .cursor {
+    width: 1.3vh;
+    height: 1.3vh;
+    border-radius: 50%;
+    background: var(--secondary);
+    border: 0.25vh solid var(--secondary);
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    top:0;
+    left:0;
+} 
+
+.champions {
+    width: 80vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 4vw;
+}
+
+.champion-box {
+    width: 10vw;
+    height: 16.5vw;
+    /* outline: 2px solid white; */
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3%;
+    background-color: var(--primary);
+    border-radius: 0 0 15px 0;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+}
+
+.champion-image {
+    width: 10vw;
+    height: 14vw;
+}
+
+.cover {
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+}
+
+.name {
+    text-transform: uppercase;
+    font-size: 1.15vw;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+    position: relative;
+    left: 0.3vw;
+    transition: all 0.4s ease-in-out;
+}
+
+.champion-box span {
+    position:absolute;
+    background-color: var(--primary);
+}
+
+.champion-box span:nth-child(even) {
+    width: 100%;
+    height: 1%;
+    top: -1%;
+    left:0;
+    transition: all 0.3s ease-in-out 0.3s;
+    transform-origin: left;
+    transform: scaleX(0);
+    border-radius: 3px 0 0 0;
+}
+
+.champion-box span:nth-child(odd) {
+    width: 1%;
+    height: 101%;
+    top: -1%;
+    right: -1%;
+    transition: all 0.3s ease-in-out; 
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+.champion-box:hover {
+    border-radius: 0;
+    background-color: var(--secondary);
+}
+
+.champion-box:hover span {
+    background-color: var(--secondary);
+}
+
+.champion-box:hover span:nth-child(even) {
+    transform: scaleX(100%);
+    transition: all 0.4s ease-in-out;
+}
+
+.champion-box:hover span:nth-child(odd) {
+    transform: scaleY(100%);
+    transition: all 0.4s ease-in-out 0.4s; 
+}
+
+.champion-box:hover .cover {
+    opacity: 0.9;
+}
+
+.champion-box:hover .name {
+    left: 0.7vw;
+}
+
+
+
+/* CHAMPION PAGES */
+.champion-page {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    overflow: hidden;
+    display: block;
+}
+
+.champion-selector {
+    width: 100%;
+    height: 0vh;
+}
+
+.containers {
+    display: flex;
+}
+
+.container {
+    width: 50vw;
+    height: 100vh;
+}
+
+.viewer {
+    /* background-color: aqua; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.webgl {
+    width: 40vw;
+    height: 80vh;
+    /* background-color: bisque; */
+}
+
+.chromas {
+    position: absolute;
+    bottom: 10vh;
+}
+
+.chroma {
+    width:1.7vh;
+    height:1.7vh;
+    background-color: #fff;
+    border-radius: 50%;
+    display:inline-block;
+    margin:0.5vh;
+    transition: all 0.2s ease-in-out;
+}
+
+.active-chroma {
+    transform: scale(1.3);
+}
+
+.active-chroma::before {
+    content:"";
+    position:absolute;
+    top: -0.1vh;
+    left: -0.1vh;
+    width:1.7vh;
+    height:1.7vh;
+    border-radius: 50%;
+    display:inline-block;
+    transform: scale(1.3);
+    border: 0.1vh solid #fff; 
+    box-shadow: 0 0 0.3vh #fff; 
+}
+
+.switchers {
+    height: 4vh;
+    position: absolute;
+    bottom: 5vh;
+}
+
+.switcher {
+    display:inline-block;
+    margin:1vh;
+}
+
+.switcher-label {
+    font-size: 1.3rem;
+    margin-left: -0.5vh;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.data {
+    /* background-color: pink; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+.champion-info {
+    width:60%;
+    height: 30%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.champion-name {
+    font-family: 'Merriweather', serif;
+    font-size: 4.5vw;
+    font-weight: 900;
+    text-transform:uppercase;
+    text-align: right;
+    color: var(--primary);
+}
+
+/* .champion-nick {
+    font-size: 1.3vw;
+    text-transform: uppercase;
+    font-weight:400;
+    text-align: right;
+    margin-bottom: -1vh;
+}
+
+.champion-desc {
+    font-size: 1vw;
+    font-weight:300;
+    text-align: justify;
+} */
+
+.skin-selector {
+    margin-bottom: 5vh;
+    font-style: italic;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight:400;
+    width:80%;
+    height: 70%;
+}
+
+/* skins */
+.slider {
+    width:100%;
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+  
+.skin {
+    width: 100%;
+    height: 10vh;
+    list-style-type: none;
+    display:flex;
+    align-items: center;
+    position: relative;
+    margin-top:2.5vh;
+    opacity:0.8;
+    transform: scale(0.8);
+    transition:all 0.5s ease-in-out;
+    scroll-margin-top: 7vh;
+    font-size: 1.5rem;
+}
+
+.skin-img {
+    height:100%;
+    position: relative;
+}
+
+.skin-name {
+    margin-left: 3vw;
+}
+
+.skin-active {
+    opacity:1;
+    transform: scale(1);
+}
+
+.skin-active span {
+    position:absolute;
+    display:block;
+}
+
+.skin-active span:nth-child(1) {
+    top: 1vh;
+    right: 0;
+    width: 95%;
+    height:0.3vh;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: horizontal 0.2s ease-in-out 0s forwards;
+}
+
+.skin-active span:nth-child(2) {
+    top: 1vh;
+    right:0;
+    width: 0.3vh;
+    height:100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: vertical 0.2s ease-in-out 0.2s forwards;
+}
+
+.skin-active span:nth-child(3) {
+    bottom: -1vh;
+    right:0;
+    width: 95%;
+    height:0.3vh;
+    transform: scaleX(0);
+    transform-origin: right;
+    animation: horizontal 0.2s ease-in-out 0.4s forwards;
+}
+
+.skin-active span:nth-child(4) {
+    top: 1vh;
+    right:95%;
+    width: 0.3vh;
+    height:100%;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    animation: vertical 0.2s ease-in-out 0.6s forwards;
+}
+
+@keyframes horizontal {
+    0% {
+        transform: scaleX(0);
+        background: #fff;
+    }
+
+    100% {
+        transform: scaleX(1);
+        background: var(--secondary);
+    }
+}
+
+@keyframes vertical {
+    0% {
+        transform: scaleY(0);
+        background: #fff;
+    }
+
+    100% {
+        transform: scaleY(1);
+        background: var(--secondary);
+    }
+}
+
+/* CHROMAS */
+
+.og {
+    background: url(/images/chromas/og.jpg) no-repeat center;
+}
+
+.ruby {
+    background-color: #9b3058;
+}
+
+.merc {
+    background: #e7555e;
+}
+
+.amber {
+    background: #fd9800;
+}
+
+.citrine {
+    background: #b36245;
+}
+
+.rose {
+    background-color: #bc629c;
+}
+
+.pearl {
+    background: #a1aeca;
+}
+
+.tanzanite {
+    background: #4d3595;
+}
+
+.obsidian {
+    background: #14182a;
+}
+
+.sapphire {
+    background-color: #2d3574;
+}
+
+.turquoise {
+    background-color: #10d0a6;
+}
+
+
+.emerald {
+    background-color: #249943;
+}
+
+.rainbow {
+    background: url(/images/chromas/rainbow.jpg) no-repeat center;
+}
+
+.speckled {
+    background: url(/images/chromas/speckled.jpg) no-repeat center;
+}
+
+.ahriversary {
+    background: url(/images/chromas/ahriversary.jpg) no-repeat center;
+}
+
+.amethyst {
+    background-color: #6c67bc;
+}
+
+.catseye {
+    background-color: #c69c6e;
+}
+
+.golden {
+    background-color: #be984e;
+}
+
+.aquamarine {
+    background-color: #2ddcdf;
+}
+
+.peridot {
+    background-color: #9dbf36;
+}
+
+.night {
+    background-color: #111024;
+}
+
+.baddest {
+    background-color: #9d9bef;
+}
+
+.reckoning {
+    background-color: #e2b045;
+}
+
+.freestyle {
+    background-color: #c63e6b;
+}
+
+.underground {
+    background-color: #86064d;
+}
+
+.jasper {
+    background-color: #852c24;
+}
+
+.vitality {
+    background-color: #95e351;
+}
+
+.tiger {
+    background-color: #d0a10b;
+}
+
+.sandstone {
+    background-color: #ac7e46;
+}
+
+.pariah {
+    background-color: #5f0305;
+}
+
+.nomad {
+    background-color: #f5a872;
+}
+
+.ritual {
+    background-color: #7dc08e;
+}
+
+.jadeclaw {
+    background-color: #b2e596;
+}
+
+.emberclaw {
+    background-color: #da473d;
+}
+
+.emberwood {
+    background-color: #805e9b;
+}
+
+.chrono {
+    background-color: #1a2131;
+}
+
+.ivy {
+    background-color: #88c7a0;
+}
+
+.marigold {
+    background-color: #c8ac66;
+}
+
+.sage {
+    background-color: #8aa4c4;
+}
+
+.cobalt {
+    background-color: #567494;
+}
+
+.gunmetal {
+    background-color: #8f8e8a;
+}
+
+.molten {
+    background-color: #ac4336;
+}
+
+.disco {
+    background-color: #654fa9;
+}
+
+.cerulean {
+    background-color: #57eeff;
+}
+
+.blue {
+    background-color: #6294b3;
+}
+
+.green {
+    background-color: #437055;
+}
+
+.pink {
+    background-color: #d75a9b;
+}
+
+.day {
+    background-color: #622a16;
+}
+
+.dusk {
+    background-color: #4096b5;
+}
+
+.sweet {
+    background-color: #f7bfef;
+}
+
+.iron {
+    background-color: #1f2829;
+}
+
+.bronze {
+    background-color: #5f4532;
+}
+
+.copper {
+    background-color: #9f5948;
+}
+
+.resolute {
+    background-color: #853a55;
+}
+
+.peacekeeper {
+    background-color: #eb38ff;
+}
+
+.ruined {
+    background-color: #eb38ff;
+}
+
+.cursed {
+    background-color: #ae8e45;
+}
+
+.meteorite {
+    background-color: #c93f37;
+}
+
+.striped {
+    background-color: #5693ac;
+}
+
+.orange {
+    background-color: #c45c04;
+}
+
+.red {
+    background-color: #8d0311;
+}
+
+.elite {
+    background-color: #1f1f2b;
+}
+
+.garnet {
+    background-color: #af4444;
+}
+
+.ivory {
+    background-color: #c7b199;
+}
+
+.plum {
+    background-color: #5a3280;
+}
+
+.neon {
+    background-color: #55d2aa;
+}
+
+.granite {
+    background-color: #6f786c;
+}
+
+.astral {
+    background-color: #583788;
+}
+
+.formal {
+    background-color: #171521;
+}
+
+.coronation {
+    background-color: #dc7298;
+}
+
+.antimatter {
+    background-color: #9b113b;
+}
+
+.make {
+    background-color: #221e34;
+}
+
+.brick {
+    background-color: #701e2c;
+}
+
+.cream {
+    background-color: #f1ebab;
+}
+
+.nightwire {
+    background-color: #7dbee1;
+}
+
+.paragon {
+    background-color: #41eafa;
+}
+
+.blight {
+    background-color: #42073fd0;
+}
+
+.burn {
+    background-color: #5d0923;
+}
+
+.frostbite {
+    background-color: #0f4e62;
+}
+
+.hunter {
+    background-color: #4e5c82;
+}
+
+.deathbringer {
+    background-color: #485b82;
+}
+
+.black {
+    background-color: #000000;
+}
+
+.yellow {
+    background-color: #e6d358;
+}
+
+.azure {
+    background-color: #89c3ca;
+}
+
+.lemon {
+    background-color: #edd894;
+}
+
+.ko {
+    background-color: #e87abe;
+}
+
+.hearts {
+    background-color: #ec66aa;
+}
+
+.crimson {
+    background-color: #9a3546;
+}
+
+.gold {
+    background-color: #ec66aa;
+}
+
+.aqua {
+    background-color: #68b7bf;
+}
+
+.ebony {
+    background-color: #243644;
+}
+
+.pale {
+    background-color: #adbdb1;
+}
+
+.toxic {
+    background-color: #577635;
+}
+
+.heavenly {
+    background-color: #23352d;
+}
+
+.lifebringer {
+    background-color: #66d4c3;
+}
+
+.smoke {
+    background-color: #c4ccc9;
+}
+
+.sunbeam {
+    background-color: #cdb762;
+}
+
+.twilight {
+    background-color: #b47cd3;
+}
+
+.emberwoken {
+    background-color: #88303c;
+}
+
+.navy {
+    background-color: #052d52;
+}
+
+.purple {
+    background-color: #631166;
+}
+
+.silver {
+    background-color: #b2c3c5;
+}
+
+.bubblegum {
+    background-color: #f5a7c9;
+}
+
+.honey {
+    background-color: #e6ac3d;
+}
+
+@media (max-width: 480px) {
+    .cursor {
+        display:none;
+        pointer-events:none;
+    }
+   
+    .champions {
+        margin-top: 10vw;
+        gap:10vw;
+    }
+
+    .champion-box {
+        width: 35vw;
+        height: 50vw;
+    }
+   
+    .champion-image {
+        width: 35vw;
+        height: 48vw;
+    }
+
+    .name {
+        font-size: 1.3em;
+    }
+
+    .containers {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100vw;
+        height: 45vh;
+    }
+
+    .viewer {
+        position: relative;
+        top: 7vh;
+    }
+
+    .webgl {
+        width: 100vw;
+        height: 60vh;
+    }
+
+    .champion-info {
+        width: 80vw;
+        height: 40%;
+        z-index: 2;
+        position: relative;
+        top: 5%;
+    }
+
+    .skin-selector {
+        height: 60%;
+        position: relative;
+    }
+    
+    .champion-name {
+        font-size: 3em;
+    }
+    
+    /* .champion-nick {
+        font-size: 1.5em;
+    }
+    
+    .champion-desc {
+        display: none;
+    } */
+
+    .skin-name {
+        font-size: 1.2rem;
+    }
+
+    .switchers {
+        z-index:10;
+        top:97%;
+        left: 9vw;
+    }
+
+    .switcher-label {
+        font-size: 0.9rem;
+    }
+
+    .chromas {
+        top:90%;
+        left: 10vw;
+        z-index:10;
+    }
+    
+    .active-chroma {
+        transform: scale(1.1);
+    }
+    
+    .active-chroma::before {
+        transform: scale(1.1);
+    }
+}
