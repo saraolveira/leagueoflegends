@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Aatrox
+    </title>
+    <link rel="shortcut icon" href="/images/icon.jpg" type="image/png">
+    <link rel="stylesheet" href="/style.css">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ESB7QTZ568"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ESB7QTZ568');
+</script></head>
+<body class="champion-page aatrox">
+    <div class="cursor"></div>
+
+    <div class="containers">
+        <div class="container viewer">
+            <canvas class="webgl"></canvas>
+            
+            <div class="chromas"></div>
+            <div class="switchers">
+                <!-- <input type="checkbox" name="mid" id="mid" checked="true" class="switcher">
+                <label for="mid" class="switcher-label">mid</label>
+                <input type="checkbox" name="mid" id="mid" checked="true" class="switcher">
+                <label for="mid" class="switcher-label">mid</label> -->
+            </div>
+        </div>
+        <div class="container data">
+            <div class="champion-info">
+                <!-- <h2 class="champion-nick"></h2> -->
+                <h1 class="champion-name">Aatrox</h1>
+                <!-- <p class="champion-desc"></p> -->
+            </div>
+            <div class="skin-selector">
+                <div class="slider">
+                    <div class="slider-inner">
+                        <div class="slides">
+                            <ul>
+                                <li class="skin aatrox-base skin-active">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox.png" alt="Aatrox" class="skin-img">
+                                    <p class="skin-name">Aatrox</p>
+                                </li>
+                                <li class="skin aatrox-justicar ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-justicar.png" alt="aatrox justicar" class="skin-img">
+                                    <p class="skin-name">justicar aatrox</p>
+                                </li>
+                                <li class="skin aatrox-mecha ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-mecha.png" alt="aatrox mecha" class="skin-img">
+                                    <p class="skin-name">mecha aatrox</p>
+                                </li>
+                                <li class="skin aatrox-sea-hunter ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-sea-hunter.png" alt="aatrox sea-hunter" class="skin-img">
+                                    <p class="skin-name">sea hunter aatrox</p>
+                                </li>
+                                <li class="skin aatrox-blood-moon ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-blood-moon.png" alt="aatrox blood-moon" class="skin-img">
+                                    <p class="skin-name">blood moon aatrox</p>
+                                </li>
+                                <li class="skin aatrox-prestige-blood-moon ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-prestige-blood-moon.png" alt="aatrox prestige-blood-moon" class="skin-img">
+                                    <p class="skin-name">prestige blood moon aatrox</p>
+                                </li>
+                                <li class="skin aatrox-victorius ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-victorius.png" alt="aatrox victorius" class="skin-img">
+                                    <p class="skin-name">victorius aatrox</p>
+                                </li>
+                                <li class="skin aatrox-odyssey ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-odyssey.png" alt="aatrox odyssey" class="skin-img">
+                                    <p class="skin-name">odyssey aatrox</p>
+                                </li>
+                                <li class="skin aatrox-lunar-eclipse ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/aatrox/aatrox-lunar-eclipse.png" alt="aatrox lunar-eclipse" class="skin-img">
+                                    <p class="skin-name">lunar eclipse aatrox</p>
+                                </li>
+                                <!-- <li class="skin replacename-replaceskin ">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <img src="/images/replacename/replacename-replaceskin.png" alt="replacename replaceskin" class="skin-img">
+                                    <p class="skin-name">replacename replaceskin</p>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.140.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.140.0/examples/jsm/controls/OrbitControls.js",
+                "GLTFLoader": "https://unpkg.com/three@0.140.0/examples/jsm/loaders/GLTFLoader.js",
+                "DRACOLoader": "https://unpkg.com/three@0.140.0/examples/jsm/loaders/DRACOLoader.js"
+            }
+        }
+    </script>
+    <script type="module" src="../app.js"></script>
+</body>
+</html>
